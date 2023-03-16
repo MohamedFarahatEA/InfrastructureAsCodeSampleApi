@@ -12,6 +12,15 @@ provider "azurerm" {
   }
 }
 
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "rg_storage_tf_state"
+    storage_account_name = "tfstorageforstate"
+    container_name       = "tfdata"
+    key                  = "terraform.tfstate"
+  }
+}
+
 ## Create a Resource Group for Storage
 resource "azurerm_resource_group" "tf_rg_sampleapi" {
   location = "uaenorth"
@@ -30,13 +39,13 @@ resource "azurerm_container_group" "tf_cg_sampleapi" {
 
 
   container {
-    name = "sampleapi"
-    image = "mohamedfarhat01/sampleapi"
-    cpu = "1"
+    name   = "sampleapi"
+    image  = "mohamedfarhat01/sampleapi"
+    cpu    = "1"
     memory = "1"
 
     ports {
-      port = 80
+      port     = 80
       protocol = "TCP"
     }
   }
