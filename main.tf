@@ -21,6 +21,11 @@ terraform {
   }
 }
 
+variable "imagebuild" {
+  type        = string
+  description = "the latest build virsion"
+}
+
 ## Create a Resource Group for Storage
 resource "azurerm_resource_group" "tf_rg_sampleapi" {
   location = "uaenorth"
@@ -40,7 +45,7 @@ resource "azurerm_container_group" "tf_cg_sampleapi" {
 
   container {
     name   = "sampleapi"
-    image  = "mohamedfarhat01/sampleapi"
+    image  = "mohamedfarhat01/sampleapi:${var.imagebuild}"
     cpu    = "1"
     memory = "1"
 
