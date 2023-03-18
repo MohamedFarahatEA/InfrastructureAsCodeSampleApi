@@ -24,7 +24,7 @@ terraform {
 
 variable "imagebuild" {
   type        = string
-  description = "the latest build virsion"
+  description = "the latest build version"
 }
 
 ## Create a Resource Group for Storage
