@@ -14,7 +14,6 @@ provider "azurerm" {
 
 terraform {
   backend "azurerm" {
-    subscription_id      = "df41f877-a2e9-46c9-9c8a-2e5da35b668d"
     resource_group_name  = "rg_storage_tf_state"
     storage_account_name = "tfstorageforstate"
     container_name       = "tfdata"
@@ -24,7 +23,7 @@ terraform {
 
 variable "imagebuild" {
   type        = string
-  description = "the latest build version"
+  description = "the latest build virsion"
 }
 
 ## Create a Resource Group for Storage
